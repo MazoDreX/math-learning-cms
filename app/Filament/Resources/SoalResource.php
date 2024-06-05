@@ -31,9 +31,11 @@ class SoalResource extends Resource
     {
         return $form
             ->schema([
-                Section::make('Tentukan ID Sub-bab')
+                Section::make('Tentukan Sub-bab')
                 ->schema([
-                    Select::make('subbab_id'), //BELUM DIATUR (PLACE HOLDER)
+                    Select::make('subbab_id')
+                    ->relationship('subbab', 'subbabJudul')
+                    ->searchable(), 
                 ]),
                 
                 Section::make('Buat Soal dan Jawaban')
@@ -72,8 +74,10 @@ class SoalResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('subbab_id')->label('Subbab ID'),
-                TextColumn::make('soal')->label('Soal'),
+                TextColumn::make('subbab.subbabJudul'),
+                TextColumn::make('soal')
+                ->words(10)
+                ->label('Soal'),
             ])
             ->filters([
                 //

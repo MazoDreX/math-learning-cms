@@ -41,7 +41,7 @@ class BabResource extends Resource
                 Section::make('Buat Slug')
                 ->description('Slug adalah tulisan yang akan berada di url')
                 ->schema([
-                    TextInput::make('slug')->required(),
+                    TextInput::make('slug')->required()->unique(),
                 ]),
             ]);
     }

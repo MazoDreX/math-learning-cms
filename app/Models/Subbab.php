@@ -20,4 +20,9 @@ class Subbab extends Model
     protected $casts = [
         'tags' => 'array',
     ];
+
+    public function bab()
+    {
+        return $this->belongsTo(Bab::class);
+    }
 }

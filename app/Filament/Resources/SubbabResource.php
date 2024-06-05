@@ -27,14 +27,14 @@ class SubbabResource extends Resource
 
     public static function form(Form $form): Form
     {
-        return $form
+    return $form
             ->schema([
                 Section::make('Membuat Judul Sub-bab')
-                ->description('Tentukan bab_id dan Buat judul sub-bab')
+                ->description('Tentukan bab dan Buat judul sub-bab')
                 ->schema([
-                    Select::make('bab_id'), //BELOM DITENTUKAN (PLACE HOLDER)
-                
-                
+                    Select::make('bab_id')
+                        ->relationship('bab', 'judul')
+                        ->searchable(), 
                     TextInput::make('subbabJudul')
                         ->label('Judul Sub-bab')
                         ->required(),
@@ -53,7 +53,8 @@ class SubbabResource extends Resource
                 ->description('Kebutuhan nama URL (Slug) dan Tag isi sub-bab')
                 ->schema([
                     TextInput::make('slug')
-                        ->required(),
+                        ->required()
+                        ->unique(),
                     TagsInput::make('tags')
                         ->required(),
                 ])->columns(2),
@@ -64,6 +65,7 @@ class SubbabResource extends Resource
     {
         return $table
             ->columns([
+                TextColumn::make('bab.judul'),
                 TextColumn::make('subbabJudul'),
                 TextColumn::make('slug'),
                 TextColumn::make('tags'),
