@@ -7,6 +7,7 @@ use App\Filament\Resources\SubbabResource\RelationManagers;
 use App\Models\Subbab;
 use Filament\Forms;
 use Filament\Forms\Components\MarkdownEditor;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\TextInput;
@@ -28,20 +29,34 @@ class SubbabResource extends Resource
     {
         return $form
             ->schema([
-                Select::make('bab_id'), //BELOM DITENTUKAN (PLACE HOLDER)
+                Section::make('Membuat Judul Sub-bab')
+                ->description('Tentukan bab_id dan Buat judul sub-bab')
+                ->schema([
+                    Select::make('bab_id'), //BELOM DITENTUKAN (PLACE HOLDER)
                 
                 
-                TextInput::make('subbabJudul')
-                    ->label('Judul Sub-bab')
-                    ->required(),
-                MarkdownEditor::make('subbabIsi')
-                    ->required()
-                    ->label('Isi Sub-bab'),
-                TextInput::make('slug')
-                    ->required(),
-                TagsInput::make('tags')
-                    ->required(),
-                
+                    TextInput::make('subbabJudul')
+                        ->label('Judul Sub-bab')
+                        ->required(),
+                    
+                ])->columns(1),
+                Section::make('Membuat Konten atau Isi Sub-bab')
+                ->description('Bisa diisikan dengan format LaTeX untuk membuat notasi matematika')
+                ->schema([
+                    MarkdownEditor::make('subbabIsi')
+                        ->required()
+                        ->label('Isi Sub-bab')
+                        ->columnSpanFull(),
+                    
+                ]),
+                Section::make('Meta')
+                ->description('Kebutuhan nama URL (Slug) dan Tag isi sub-bab')
+                ->schema([
+                    TextInput::make('slug')
+                        ->required(),
+                    TagsInput::make('tags')
+                        ->required(),
+                ])->columns(2),
             ]);
     }
 

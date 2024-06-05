@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\BabResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\BabResource\RelationManagers;
+use Filament\Forms\Components\Section;
 
 class BabResource extends Resource
 {
@@ -26,13 +27,22 @@ class BabResource extends Resource
     {
         return $form
             ->schema([
-                Select::make('kelas')->options([
-                    '10' => '10',
-                    '11' => '11',
-                    '12' => '12',
+                Section::make('Buat Judul Bab')
+                ->description('Tentukan kelasnya dan buat judul bab')
+                ->schema([
+                    Select::make('kelas')->options([
+                        '10' => '10',
+                        '11' => '11',
+                        '12' => '12',
+                    ]),
+                    TextInput::make('judul')->required(),
+                    
                 ]),
-                TextInput::make('judul')->required(),
-                TextInput::make('slug')->required(),
+                Section::make('Buat Slug')
+                ->description('Slug adalah tulisan yang akan berada di url')
+                ->schema([
+                    TextInput::make('slug')->required(),
+                ]),
             ]);
     }
 

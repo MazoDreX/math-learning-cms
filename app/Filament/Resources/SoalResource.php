@@ -10,14 +10,16 @@ use Filament\Tables\Table;
 use Filament\Resources\Resource;
 use function Laravel\Prompts\select;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Textarea;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
 use Illuminate\Database\Eloquent\Builder;
-use App\Filament\Resources\SoalResource\Pages;
 
+use App\Filament\Resources\SoalResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\SoalResource\RelationManagers;
+use Filament\Forms\Components\MarkdownEditor;
 
 class SoalResource extends Resource
 {
@@ -29,25 +31,39 @@ class SoalResource extends Resource
     {
         return $form
             ->schema([
-                Select::make('subbab_id'), //BELUM DIATUR (PLACE HOLDER)
-                Textarea::make('soal')
-                    ->label('Soal')
-                    ->required(),
-                Textarea::make('jawaban')
-                    ->required()
-                    ->label('Jawaban yang benar'),
-                Textarea::make('option_a')
-                    ->label('Opsi A')
-                    ->required(),
-                Textarea::make('option_b')
-                    ->label('Opsi B')
-                    ->required(),
-                Textarea::make('option_c')
-                    ->label('Opsi C')
-                    ->required(),
-                Textarea::make('option_d')
-                    ->label('Opsi D')
-                    ->required(),
+                Section::make('Tentukan ID Sub-bab')
+                ->schema([
+                    Select::make('subbab_id'), //BELUM DIATUR (PLACE HOLDER)
+                ]),
+                
+                Section::make('Buat Soal dan Jawaban')
+                ->description('Bisa diisi dengan notasi LaTeX')
+                ->schema([
+                    MarkdownEditor::make('soal')
+                        ->label('Soal')
+                        ->required(),
+                    Textarea::make('jawaban')
+                        ->required()
+                        ->label('Jawaban yang benar'),
+                ]),
+
+
+                Section::make('Opsi Pilihan Ganda')
+                ->schema([
+                    Textarea::make('option_a')
+                        ->label('Opsi A')
+                        ->required(),
+                    Textarea::make('option_b')
+                        ->label('Opsi B')
+                        ->required(),
+                    Textarea::make('option_c')
+                        ->label('Opsi C')
+                        ->required(),
+                    Textarea::make('option_d')
+                        ->label('Opsi D')
+                        ->required(),
+                ]),
+                
 
             ]);
     }
