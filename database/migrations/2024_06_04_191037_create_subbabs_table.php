@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('bab_id')->constrained()->cascadeOnDelete();
             $table->string('subbabJudul');
-            $table->text('subbabIsi');
+            $table->text('subbabIsi')->nullable();
             $table->string('slug')->unique();
             $table->json('tags')->nullable();
             $table->timestamps();
