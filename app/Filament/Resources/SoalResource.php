@@ -25,7 +25,7 @@ class SoalResource extends Resource
 {
     protected static ?string $model = Soal::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-question-mark-circle';
 
     public static function form(Form $form): Form
     {
@@ -74,7 +74,8 @@ class SoalResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('subbab.subbabJudul'),
+                TextColumn::make('subbab.subbabJudul')
+                ->sortable(),
                 TextColumn::make('soal')
                 ->words(10)
                 ->label('Soal'),

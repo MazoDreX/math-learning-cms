@@ -54,7 +54,7 @@ class SubbabResource extends Resource
                 ->schema([
                     TextInput::make('slug')
                         ->required()
-                        ->unique(),
+                        ->unique(ignoreRecord: true),
                     TagsInput::make('tags')
                         ->required(),
                 ])->columns(2),
@@ -65,7 +65,8 @@ class SubbabResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('bab.judul'),
+                TextColumn::make('bab.judul')
+                    ->sortable(),
                 TextColumn::make('subbabJudul'),
                 TextColumn::make('slug'),
                 TextColumn::make('tags'),
