@@ -35,7 +35,8 @@ class SoalResource extends Resource
                 ->schema([
                     Select::make('subbab_id')
                     ->relationship('subbab', 'subbabJudul')
-                    ->searchable(), 
+                    ->searchable()
+                    ->required(), 
                 ]),
                 
                 Section::make('Buat Soal dan Jawaban')
