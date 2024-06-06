@@ -14,4 +14,9 @@ class Bab extends Model
         'judul',
         'slug',
     ];
+
+    public function subbabs()
+    {
+        return $this->hasMany(Subbab::class);
+    }
 }

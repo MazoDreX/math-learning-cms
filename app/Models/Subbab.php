@@ -25,4 +25,9 @@ class Subbab extends Model
     {
         return $this->belongsTo(Bab::class);
     }
+
+    public function soals()
+    {
+        return $this->hasMany(Soal::class);
+    }
 }
