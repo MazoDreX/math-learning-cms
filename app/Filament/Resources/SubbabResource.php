@@ -34,7 +34,8 @@ class SubbabResource extends Resource
                 ->schema([
                     Select::make('bab_id')
                         ->relationship('bab', 'judul')
-                        ->searchable(), 
+                        ->searchable()
+                        ->required(), 
                     TextInput::make('subbabJudul')
                         ->label('Judul Sub-bab')
                         ->required(),

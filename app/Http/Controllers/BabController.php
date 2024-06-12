@@ -19,4 +19,10 @@ class BabController extends Controller
         $subbabs = $bab->subbabs;
         return view('babs.show', compact('bab', 'subbabs'));
     }
+
+    public function menu()
+    {
+    $babs = Bab::with('subbabs')->get();
+    return view('components.menu', compact('babs'));
+    }
 }
