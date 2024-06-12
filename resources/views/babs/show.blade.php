@@ -1,16 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bab - {{ $bab->judul }}</title>
-    <link rel="icon" type="image/x-icon" href="{{ asset('/images/math-icon.png') }}">
-    @vite('resources/css/app.css')
-</head>
-<body>
-</nav>
+<x-layout>
+  <title>Bab {{ $bab->judul }}</title>
+  <x-navbar></x-navbar>
   <div class="flex flex-col min-h-screen bg-gray-100 dark:bg-gray-900">
-    <header class="bg-white dark:bg-gray-800 shadow-md px-4 py-5 flex justify-between items-center">
+    <!-- <header class="bg-white dark:bg-gray-800 shadow-md px-4 py-5 flex justify-between items-center">
     <a href="/" class="text-xl font-bold text-gray-800 dark:text-gray-100">Belajar Matematika</a>
       <nav class="space-x-4">
         <button id="toggleDarkMode" class="text-gray-600 hover:text-gray-800 dark:text-gray-200 dark:hover:text-gray-100">
@@ -20,7 +12,8 @@
         </button>
         <a href="/admin" class="text-gray-600 hover:text-gray-800 dark:text-gray-200 dark:hover:text-gray-100">Admin</a>
       </nav>
-    </header>
+    </header> -->
+  
 
 
     <h1 class="text-3xl font-bold text-center mb-8 my-6 dark:text-gray-100">{{ $bab->judul }}</h1>
@@ -39,5 +32,5 @@
 @else
     <p class="mt-6 text-gray-600">Tidak ada subbab yang tersedia.</p>
 @endif
-</body>
-</html>
+</div>
+</x-layout>
