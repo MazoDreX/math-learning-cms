@@ -2,7 +2,7 @@
     <!-- Smile, breathe, and go slowly. - Thich Nhat Hanh -->
 
 
-    <nav class="bg-white-800 dark:bg-gray-900" x-data="{ isOpen: false }"  >
+    <nav class="bg-white-800 dark:bg-neutral-900" x-data="{ isOpen: false }"  >
         <div x-data="{ isOn : false}" >
             <div
             x-data="{ currentPage: '{{ Route::currentRouteName() }}' }"
@@ -11,7 +11,7 @@
     <div class="relative flex h-16 items-center justify-between">
       <div  class="absolute inset-y-0 left-0 flex items-center sm:hidden">
         <!-- Mobile menu button-->
-        <button @click="isOn = !isOn" type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-white-400 dark:text-gray-400 dark:hover:text-white hover:bg-gray-700 hover:text-white  focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+        <button @click="isOn = !isOn" type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-white-400 dark:text-neutral-400 dark:hover:text-white hover:bg-neutral-700 hover:text-white  focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
           <span class="absolute -inset-0.5"></span>
           <span class="sr-only">Open main menu</span>
           <!--
@@ -42,12 +42,12 @@
           class="flex space-x-4">
             <!-- Current: "bg-neutral-900 text-white", Default: "text-neutral-300 hover:bg-neutral-700 hover:text-white" -->
             <a href="{{ route('index') }}" 
-            :class="currentPage === 'index' ? 'bg-neutral-900 text-white dark:bg-gray-700' :  'text-neutral-900 hover:bg-gray-700 hover:text-white dark:text-gray-200 dark:hover:text-gray-100'"
+            :class="currentPage === 'index' ? 'bg-neutral-900 text-white dark:bg-neutral-700' :  'text-neutral-900 hover:bg-neutral-700 hover:text-white dark:text-neutral-200 dark:hover:text-neutral-100'"
             :aria-current="currentPage === 'index' ? 'page' : false"
             class="rounded-md px-3 py-2 text-sm font-medium">Home</a>
 
             <a href="{{ route('about') }}" 
-            :class="currentPage === 'about' ? 'bg-neutral-900 text-white dark:bg-gray-700' :  'text-neutral-900 hover:bg-gray-700 hover:text-white dark:text-gray-200 dark:hover:text-gray-100'"
+            :class="currentPage === 'about' ? 'bg-neutral-900 text-white dark:bg-neutral-700' :  'text-neutral-900 hover:bg-neutral-700 hover:text-white dark:text-neutral-200 dark:hover:text-neutral-100'"
             :aria-current="currentPage === 'about' ? 'page' : false"
             class="rounded-md px-3 py-2 text-sm font-medium">Tentang</a>
 
@@ -62,14 +62,14 @@
         <!-- Profile dropdown -->
         <div class="relative ml-3">
           <div>
-          <button @click="darkMode = !darkMode; localStorage.setItem('dark_mode', darkMode)" type="button" class="btn btn-secondary relative rounded-full  p-1 text-neutral-400 dark:text-gray-400 dark:hover:text-neutral-300 hover:text-neutral-900 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-neutral-800" title="DarkMode">
+          <button @click="darkMode = !darkMode; localStorage.setItem('dark_mode', darkMode)" type="button" class="btn btn-secondary relative rounded-full  p-1 text-neutral-400 dark:text-neutral-400 dark:hover:text-neutral-300 hover:text-neutral-900 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-neutral-800" title="DarkMode">
               <span class="absolute -inset-1.5"></span>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
               </svg>
           </button>
 
-          <button @click="isOpen = !isOpen" type="button" class="relative rounded-full  p-1 text-neutral-400 dark:text-gray-400 hover:text-neutral-900 dark:hover:text-neutral-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-neutral-800">
+          <button @click="isOpen = !isOpen" type="button" class="relative rounded-full  p-1 text-neutral-400 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-neutral-800">
               <span class="absolute -inset-1.5"></span>
               <span class="sr-only">Login</span>
               <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
@@ -121,11 +121,11 @@
     class="space-y-1 px-2 pb-3 pt-2">
       <!-- Current: "bg-white-900 text-white", Default: "text-white-300 hover:bg-white-700 hover:text-white" -->
       <a href="{{ route('index') }}" 
-        :class="currentPage === 'index' ? 'bg-neutral-900 text-white dark:bg-gray-700' :  'text-white-300 hover:bg-neutral-700 hover:text-white dark:text-gray-200 dark:hover:text-gray-100'"
+        :class="currentPage === 'index' ? 'bg-neutral-900 text-white dark:bg-neutral-700' :  'text-white-300 hover:bg-neutral-700 hover:text-white dark:text-neutral-200 dark:hover:text-neutral-100'"
         :aria-current="currentPage === 'index' ? 'page' : false"
         class="block rounded-md px-3 py-2 text-base font-medium">Home</a>
       <a href="{{ route('about') }}" 
-        :class="currentPage === 'about' ? 'bg-neutral-900 text-white dark:bg-gray-700' :  'text-white-300 hover:bg-neutral-700 hover:text-white dark:text-gray-200 dark:hover:text-gray-100'"
+        :class="currentPage === 'about' ? 'bg-neutral-900 text-white dark:bg-neutral-700' :  'text-white-300 hover:bg-neutral-700 hover:text-white dark:text-neutral-200 dark:hover:text-neutral-100'"
         :aria-current="currentPage === 'about' ? 'page' : false"
         class="block rounded-md px-3 py-2 text-base font-medium">Tentang</a>
     </div>

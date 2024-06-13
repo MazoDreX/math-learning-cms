@@ -1,7 +1,7 @@
 <x-layout>
   <title>Belajar Matematika - Daftar Bab</title>
 <x-navbar></x-navbar>
-<div class="flex flex-col min-h-screen bg-gray-100 dark:bg-gray-900">
+<div class="flex flex-col min-h-screen bg-gray-100 dark:bg-neutral-900">
     <!-- <header class="bg-white dark:bg-gray-800 shadow-md px-4 py-5 flex justify-between items-center">
     <a href="/" class=" text-xl font-bold text-gray-800 dark:text-gray-100">Belajar Matematika</a>
       <nav class="space-x-4">
@@ -17,7 +17,7 @@
     <main class="flex-grow px-4 py-8">
       <h1 class="text-3xl font-bold text-center mb-8 dark:text-gray-100">Daftar Bab</h1>
       <div class="grid grid-cols-3 gap-4">
-        <div class="bg-white shadow-md rounded-md px-4 py-5 hover:shadow-lg dark:bg-gray-700">
+        <div class="bg-white shadow-md rounded-md px-4 py-5 hover:shadow-lg dark:bg-neutral-700">
           <h2 class="text-xl font-bold dark:text-white">Kelas 10</h2>
           @foreach ($babs as $bab)
           @if ($bab->kelas == 10)
@@ -29,7 +29,7 @@
           @endforeach
         </div>
 
-        <div class="bg-white shadow-md rounded-md px-4 py-5 hover:shadow-lg dark:bg-gray-700">
+        <div class="bg-white shadow-md rounded-md px-4 py-5 hover:shadow-lg dark:bg-neutral-700">
           <h2 class="text-xl font-bold dark:text-white">Kelas 11</h2>
           @foreach ($babs as $bab)
           @if ($bab->kelas == 11)
@@ -41,7 +41,7 @@
           @endforeach
         </div>
 
-        <div class="bg-white shadow-md rounded-md px-4 py-5 hover:shadow-lg dark:bg-gray-700">
+        <div class="bg-white shadow-md rounded-md px-4 py-5 hover:shadow-lg dark:bg-neutral-700">
           <h2 class="text-xl font-bold dark:text-white">Kelas 12</h2>
           @foreach ($babs as $bab)
           @if ($bab->kelas == 12)
