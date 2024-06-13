@@ -33,10 +33,10 @@
           <h2 class="text-xl font-bold dark:text-white">Kelas 11</h2>
           @foreach ($babs as $bab)
           @if ($bab->kelas == 11)
-          <a href="{{url('/bab/' . $bab->slug)}}" class="text-xl font-medium text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400">
+          <a href="{{url('/bab/' . $bab->slug)}}" class="text-xl font-small text-gray-800 dark:text-neutral-200 hover:text-neutral-600 dark:hover:text-neutral-400">
             {{$bab->judul}}
           </a>
-          <p class="text-gray-600 dark:text-gray-400 mt-2">Kelas {{$bab->kelas}}</p>
+          <p class="text-gray-600 dark:text-gray-400 mt-2"></p>
           @endif
           @endforeach
         </div>
@@ -45,10 +45,10 @@
           <h2 class="text-xl font-bold dark:text-white">Kelas 12</h2>
           @foreach ($babs as $bab)
           @if ($bab->kelas == 12)
-          <a href="{{url('/bab/' . $bab->slug)}}" class="text-xl font-medium text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400">
+          <a href="{{url('/bab/' . $bab->slug)}}" class="text-xl font-small text-gray-800 dark:text-neutral-200 hover:text-neutral-600 dark:hover:text-neutral-400">
             {{$bab->judul}}
           </a>
-          <p class="text-gray-600 dark:text-gray-400 mt-2">Kelas {{$bab->kelas}}</p>
+          <p class="text-gray-600 dark:text-gray-400 mt-2"></p>
           @endif
           @endforeach
         </div>
