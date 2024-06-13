@@ -15,13 +15,13 @@
     </header> -->
     
     <main class="flex-grow px-4 py-8">
-      <h1 class="text-3xl font-bold text-center mb-8 dark:text-gray-100">Daftar Bab</h1>
+      <h1 class="text-3xl font-bold text-center mb-8 dark:text-neutral-100">Daftar Bab</h1>
       <div class="grid grid-cols-3 gap-4">
         <div class="bg-white shadow-md rounded-md px-4 py-5 hover:shadow-lg dark:bg-neutral-700">
           <h2 class="text-xl font-bold dark:text-white">Kelas 10</h2>
           @foreach ($babs as $bab)
           @if ($bab->kelas == 10)
-          <a href="{{url('/bab/' . $bab->slug)}}" class="text-xl font-small text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400">
+          <a href="{{url('/bab/' . $bab->slug)}}" class="text-xl font-small text-gray-800 dark:text-neutral-200 hover:text-neutral-600 dark:hover:text-neutral-400">
             {{$bab->judul}}
           </a>
           <p class="text-gray-600 dark:text-gray-400 mt-2"></p>
