@@ -1,7 +1,7 @@
 <x-layout>
 <title>Belajar Matematika - {{ $subbab->subbabJudul }}</title>
     <x-navbar/>
-
+<div class="bg-gray-100 dark:bg-neutral-900">
     <div class="container mx-auto p-6 bg-gray-100 dark:bg-neutral-900">
         <h1 class="text-3xl font-bold text-center mb-6 dark:text-neutral-100">{{ $subbab->subbabJudul }}</h1>
         <div class="content bg-white shadow-md rounded-lg p-6 mb-6 dark:text-white dark:bg-neutral-700">
@@ -43,7 +43,7 @@
             <p class="mt-6 text-gray-600">Tidak ada Soal Latihan yang tersedia</p>
         @endif
     </div>
-
+    </div>
     <script>
         MathJax = {
         tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
