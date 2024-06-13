@@ -10,7 +10,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     @vite('resources/css/app.css')
 </head>
-<body>
+<body x-data="{ darkMode: localStorage.getItem('dark_mode') === 'true' }" :class="{ 'dark': darkMode }">
     {{$slot}}
 </body>
 </html>
