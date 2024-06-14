@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('subbabIsi')->nullable();
             $table->string('slug')->unique();
             $table->json('tags')->nullable();
+            $table->enum('creator', ['Daniel','Samuel','Darren', 'Christopher', 'Julio', 'Surya']);
             $table->timestamps();
         });
     }

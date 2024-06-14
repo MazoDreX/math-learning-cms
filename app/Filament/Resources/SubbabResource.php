@@ -52,14 +52,23 @@ class SubbabResource extends Resource
                     
                 ]),
                 Section::make('Meta')
-                ->description('Kebutuhan nama URL (Slug) dan Tag isi sub-bab')
+                ->description('Kebutuhan nama URL (Slug), Tag isi sub-bab, dan pembuat sub-bab')
                 ->schema([
                     TextInput::make('slug')
                         ->required()
                         ->unique(ignoreRecord: true),
                     TagsInput::make('tags')
                         ->required(),
-                ])->columns(2),
+                    Select::make('creator')->options([
+                            'Daniel' => 'Daniel',
+                            'Samuel' => 'Samuel',
+                            'Darren' => 'Darren',
+                            'Christopher' => 'Christopher',
+                            'Julio' => 'Julio',
+                            'Surya' => 'Surya',
+                    ])
+                    ->required(),
+                ])->columns(3),
             ]);
     }
 
@@ -72,6 +81,7 @@ class SubbabResource extends Resource
                 TextColumn::make('subbabJudul'),
                 TextColumn::make('slug'),
                 TextColumn::make('tags'),
+                TextColumn::make('creator')
             ])
             ->filters([
                 //

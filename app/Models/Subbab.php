@@ -15,6 +15,7 @@ class Subbab extends Model
         'subbabIsi',
         'slug',
         'tags',
+        'creator',
     ];
 
     protected $casts = [
