@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,22 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     @vite('resources/css/app.css')
 </head>
+
 <body x-data="{ darkMode: localStorage.getItem('dark_mode') === 'true' }" :class="{ 'dark': darkMode }">
-    {{$slot}}
+    <div class="bg-gradient-to-b from-cyan-500 to-blue-500 dark:bg-white dark:from-indigo-900 dark:to-violet-800">
+        {{$slot}}
+    </div>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 0) {
+                navbar.classList.add('bg-gradient-to-r', 'from-cyan-500', 'to-blue-500', 'shadow-lg', 'dark:from-indigo-900', 'dark:to-violet-800');
+            } else {
+                navbar.classList.remove('bg-gradient-to-r', 'from-cyan-500', 'to-blue-500', 'shadow-lg', 'dark:from-indigo-900', 'dark:to-violet-800');
+            }
+        });
+    </script>
 </body>
+
 </html>

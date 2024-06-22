@@ -1,23 +1,28 @@
 <x-layout>
   <title>Belajar Matematika - Daftar Bab</title>
-<x-navbar></x-navbar>
-<div class="flex flex-col min-h-screen bg-gray-100 dark:bg-neutral-900">
-    <!-- <header class="bg-white dark:bg-gray-800 shadow-md px-4 py-5 flex justify-between items-center">
-    <a href="/" class=" text-xl font-bold text-gray-800 dark:text-gray-100">Belajar Matematika</a>
-      <nav class="space-x-4">
-        <button id="toggleDarkMode" class="text-gray-600 hover:text-gray-800 dark:text-gray-200 dark:hover:text-gray-100">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 0 1-9 9m-9-9a9 9 0 0 0 9-9" />
-          </svg>
-        </button>
-        <a href="/admin" class="text-gray-600 hover:text-gray-800 dark:text-gray-200 dark:hover:text-gray-100">Admin</a>
-      </nav>
-    </header> -->
-    
-    <main class="flex-grow px-4 py-8">
+  <x-navbar></x-navbar>
+  <div class="pt-16 pb-6">
+    <div class="flex justify-between max-w-screen-xl mx-auto mt-12 px-20 items-center gap-16">
+      <div>
+        <h1 class="text-3xl mb-6 font-medium dark:text-slate-200">
+          Belajar Matematika dengan Metode yang Menarik dan Inovatif
+        </h1>
+        <p class="text-xl font-normal mb-10 tracking-normal dark:text-slate-300">
+          Matematika SMA kini lebih mudah dengan panduan langkah demi
+          langkah dan latihan soal yang variatif.
+        </p>
+        <a href="#daftarbab" class="align-middle rounded-md text-white bg-gradient-to-r from-sky-900 to-sky-700 border-none hover:from-sky-800 hover:to-sky-600 shadow-lg font-semibold px-6 py-3.5 border mx-px text-lg ease-in-out duration-100  dark:from-sky-300 dark:to-indigo-400 dark:hover:from-sky-200 dark:hover:to-indigo-300 dark:text-slate-900">Belajar Sekarang</a>
+      </div>
+      <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+
+      <dotlottie-player src="https://lottie.host/b5425845-8ce5-4098-8df5-e47247037bc9/gK4p8iz2K0.json" background="transparent" speed="1" style="width: 600px; height: 400px" loop autoplay></dotlottie-player>
+    </div>
+  </div>
+  <div class="pt-16 pb-6 rounded-t-3xl bg-slate-200 shadow-inner shadow-blue-500/40 min-h-screen dark:bg-neutral-800 dark:shadow-indigo-800">
+    <main id="daftarbab" class="flex flex-col px-4 py-8 max-w-screen-xl mx-auto">
       <h1 class="text-3xl font-bold text-center mb-8 dark:text-neutral-100">Daftar Bab</h1>
-      <div class="grid grid-cols-3 gap-4">
-        <div class="bg-white shadow-md rounded-md px-4 py-5 hover:shadow-lg dark:bg-neutral-700">
+      <div class="flex gap-4">
+        <div class="w-full bg-white shadow-md rounded-md px-4 py-5 dark:bg-neutral-700">
           <h2 class="text-xl font-bold dark:text-white">Kelas 10</h2>
           @foreach ($babs as $bab)
           @if ($bab->kelas == 10)
@@ -29,7 +34,7 @@
           @endforeach
         </div>
 
-        <div class="bg-white shadow-md rounded-md px-4 py-5 hover:shadow-lg dark:bg-neutral-700">
+        <div class="w-full bg-white shadow-md rounded-md px-4 py-5 dark:bg-neutral-700">
           <h2 class="text-xl font-bold dark:text-white">Kelas 11</h2>
           @foreach ($babs as $bab)
           @if ($bab->kelas == 11)
@@ -41,7 +46,7 @@
           @endforeach
         </div>
 
-        <div class="bg-white shadow-md rounded-md px-4 py-5 hover:shadow-lg dark:bg-neutral-700">
+        <div class="w-full bg-white shadow-md rounded-md px-4 py-5 dark:bg-neutral-700">
           <h2 class="text-xl font-bold dark:text-white">Kelas 12</h2>
           @foreach ($babs as $bab)
           @if ($bab->kelas == 12)
