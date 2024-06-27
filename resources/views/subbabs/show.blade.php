@@ -30,7 +30,7 @@
                 </div>
 
                 <!-- BAGIAN ISI SUBBAB -->
-                <div class="max-w-screen-xl overflow-hidden text-wrap">
+                <div class="max-w-screen-xl overflow-auto text-wrap">
                     {!! $subbab->subbabIsi !!}
                 </div>
 
