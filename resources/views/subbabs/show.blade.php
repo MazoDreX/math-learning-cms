@@ -30,7 +30,9 @@
                 </div>
 
                 <!-- BAGIAN ISI SUBBAB -->
-                {!! $subbab->subbabIsi !!}
+                <div class="max-w-screen-xl overflow-hidden text-wrap">
+                    {!! $subbab->subbabIsi !!}
+                </div>
 
 
                 <!-- BAGIAN PEMBUAT DAN TANGGAL PEMBUATAN-->
