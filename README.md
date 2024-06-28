@@ -1,10 +1,10 @@
-# math-learning-cms
+# Math Learning CMS
 Sebagai Tugas Aplikasi Struktur Data
 
 ### TODO LIST
-- Buat skor pada soal latihan
-- Buat soal latihan bisa ditaruh gambar
-- Buat Grafik pop up atau animasi pada soal latihan
+- ~~Buat soal latihan bisa ditaruh gambar~~
+- ~~Buat Grafik pop up atau animasi pada soal latihan untuk hasil jawaban~~
+- Buat skor pada soal latihan 
 - Buat submit terakhir bisa memunculkan pop up skor 
 
 
@@ -17,9 +17,6 @@ Sebagai Tugas Aplikasi Struktur Data
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
-
-# Math Learning CMS
-
 
 
 ## Installation
