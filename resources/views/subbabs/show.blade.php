@@ -1,5 +1,6 @@
 <x-layout>
     <title>Belajar Matematika - {{ $subbab->subbabJudul }}</title>
+    <script id="MathJax-script" async src="{{asset('js/mathjax/tex-chtml.js')}}"></script>
 
     <x-navbar />
     <div class="min-h-screen bg-gradient-to-b from-neutral-200 to-neutral-300 dark:from-neutral-950 dark:to-indigo-950 py-20">
@@ -30,7 +31,9 @@
                 </div>
 
                 <!-- BAGIAN ISI SUBBAB -->
+                 <div class="max-w-screen-xl overflow-auto text-wrap">
                 {!! $subbab->subbabIsi !!}
+                </div>
 
 
                 <!-- BAGIAN PEMBUAT DAN TANGGAL PEMBUATAN-->
@@ -55,19 +58,19 @@
                         <ul class="space-y-2">
                             <li class="flex items-center">
                                 <input type="radio" name="option" value="a" id="option_a_{{ $soal->id }}">
-                                <label for="option_a_{{ $soal->id }}" class="ml-2">A. {{ $soal->option_a }}</label>
+                                <label for="option_a_{{ $soal->id }}" class="ml-2">{!! $soal->option_a !!}</label>
                             </li>
                             <li class="flex items-center">
                                 <input type="radio" name="option" value="b" id="option_b_{{ $soal->id }}">
-                                <label for="option_b_{{ $soal->id }}" class="ml-2">B. {{ $soal->option_b }}</label>
+                                <label for="option_b_{{ $soal->id }}" class="ml-2">{!! $soal->option_b !!}</label>
                             </li>
                             <li class="flex items-center">
                                 <input type="radio" name="option" value="c" id="option_c_{{ $soal->id }}">
-                                <label for="option_c_{{ $soal->id }}" class="ml-2">C. {{ $soal->option_c }}</label>
+                                <label for="option_c_{{ $soal->id }}" class="ml-2">{!! $soal->option_c !!}</label>
                             </li>
                             <li class="flex items-center">
                                 <input type="radio" name="option" value="d" id="option_d_{{ $soal->id }}">
-                                <label for="option_d_{{ $soal->id }}" class="ml-2">D. {{ $soal->option_d }}</label>
+                                <label for="option_d_{{ $soal->id }}" class="ml-2">{!! $soal->option_d !!}</label>
                             </li>
                         </ul>
                         <input type="hidden" name="correct_answer" value="{{ $soal->jawaban }}">
