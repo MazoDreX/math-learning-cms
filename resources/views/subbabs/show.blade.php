@@ -1,6 +1,10 @@
 <x-layout>
     <title>Belajar Matematika - {{ $subbab->subbabJudul }}</title>
     <script id="MathJax-script" async src="{{asset('js/mathjax/tex-chtml.js')}}"></script>
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+    <script src="{{ asset('js/subbabScript.js') }} "></script>
+    
 
     <x-navbar />
     <div class="min-h-screen bg-gradient-to-b from-neutral-200 to-neutral-300 dark:from-neutral-950 dark:to-indigo-950 py-20">
@@ -85,45 +89,5 @@
             @endif
         </div>
     </div>
-
-    <script>
-        MathJax = {
-            tex: {
-                inlineMath: [
-                    ['$', '$'],
-                    ['\\(', '\\)']
-                ]
-            }
-        };
-
-        function checkAnswer(soalId) {
-            const form = document.getElementById(`form-${soalId}`);
-            const formData = new FormData(form);
-            const selectedOption = formData.get('option');
-            const correctAnswer = form.querySelector('input[name="correct_answer"]').value;
-
-            const resultDiv = document.getElementById(`result-${soalId}`);
-            if (selectedOption) {
-                if (selectedOption === correctAnswer) {
-                    resultDiv.innerHTML = `<p class="correct text-green-500">Jawaban Anda benar!</p>`;
-                } else {
-                    resultDiv.innerHTML = `<p class="incorrect text-red-500">Jawaban Anda salah. Jawaban yang benar adalah ${correctAnswer.toUpperCase()}.</p>`;
-                }
-            } else {
-                resultDiv.innerHTML = `<p class="incorrect text-red-500">Anda belum memilih jawaban.</p>`;
-            }
-
-
-            // Menonaktifkan semua input radio setelah submit
-            const radioButtons = form.querySelectorAll('input[type="radio"]');
-            radioButtons.forEach(button => {
-                button.disabled = true;
-            });
-
-            // Menonaktifkan tombol submit setelah submit
-            const submitButton = form.querySelector('button[type="button"]');
-            submitButton.disabled = true;
-        }
-    </script>
 
 </x-layout>
