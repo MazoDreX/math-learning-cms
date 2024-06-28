@@ -3,11 +3,14 @@
     <script id="MathJax-script" async src="{{asset('js/mathjax/tex-chtml.js')}}"></script>
     <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
     <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
     <script src="{{ asset('js/subbabScript.js') }} "></script>
+     <link rel="stylesheet" href="{{ asset('css/filament/popup.css') }} "></link>
+    <meta name="jumlahSoal" content="{{ $subbab->soals->count() }}">
     
 
     <x-navbar />
-    <div class="min-h-screen bg-gradient-to-b from-neutral-200 to-neutral-300 dark:from-neutral-950 dark:to-indigo-950 py-20">
+    <div class=" min-h-screen bg-gradient-to-b from-neutral-200 to-neutral-300 dark:from-neutral-950 dark:to-indigo-950 py-20">
         <div class="container mx-auto p-6 bg-neutral-100 dark:bg-neutral-900">
 
             <div class="flex justify-between items-center mb-6">
@@ -51,8 +54,13 @@
                 </div>
 
 
+                
             </div>
             <h2 class="text-2xl font-semibold mb-4 text-center dark:text-neutral-100">Soal Latihan</h2>
+            <div class="flex">
+                <div class="">Skor Anda : </div>
+                <div id="score" class="ml-2">0</div>
+            </div>
             @if ($soals && count($soals) > 0)
             <div class="space-y-4 ">
                 @foreach ($soals as $soal)
@@ -77,12 +85,20 @@
                                 <label for="option_d_{{ $soal->id }}" class="ml-2">{!! $soal->option_d !!}</label>
                             </li>
                         </ul>
-                        <input type="hidden" name="correct_answer" value="{{ $soal->jawaban }}">
-                        <button type="button" onclick="checkAnswer({{ $soal->id }});" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded">Submit</button>
+                        <div class="flex">
+                            <input type="hidden" name="correct_answer" value="{{ $soal->jawaban }}">
+                            <div class="relative mt-10">
+                                <button type="button" onclick="checkAnswer({{ $soal->id }});" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded">Submit</button>
+                            </div>
+                            <div id="result-{{ $soal->id }}" class="mt-2 p-4 rounded"></div>
+                        </div>
                     </form>
-                    <div id="result-{{ $soal->id }}" class="mt-2 p-4 rounded"></div>
+                    <div class="relative">
+                    <div id="result-{{ $soal->id }}-text" class="mt-4 p-4 rounded"></div>
+                    </div>
                 </div>
                 @endforeach
+                
             </div>
             @else
             <p class="mt-6 text-center text-gray-600">Tidak ada Soal Latihan yang tersedia</p>

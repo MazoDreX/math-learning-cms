@@ -4,7 +4,8 @@ Sebagai Tugas Aplikasi Struktur Data
 ### TODO LIST
 - ~~Buat soal latihan bisa ditaruh gambar~~
 - ~~Buat Grafik pop up atau animasi pada soal latihan untuk hasil jawaban~~
-- Buat skor pada soal latihan 
+- ~~Buat skor pada soal latihan~~ 
+
 - Buat submit terakhir bisa memunculkan pop up skor 
 
 
