@@ -31,9 +31,9 @@
                 </div>
 
                 <!-- BAGIAN ISI SUBBAB -->
-                 <div class="max-w-screen-xl overflow-auto text-wrap">
+                 
                 {!! $subbab->subbabIsi !!}
-                </div>
+                
 
 
                 <!-- BAGIAN PEMBUAT DAN TANGGAL PEMBUATAN-->
