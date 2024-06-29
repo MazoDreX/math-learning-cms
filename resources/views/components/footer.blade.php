@@ -1,7 +1,7 @@
 @php
 $isHomePage = request()->is('/');
 @endphp
-
+@vite('resources/css/app.css', 'resources/js/app.js')
 <div class="bg-slate-900 dark:bg-slate-950">
     <div class="flex flex-col items-center gap-5 max-w-screen-xl mx-auto pt-8 pb-6">
         <div class="w-full flex justify-around items-center">

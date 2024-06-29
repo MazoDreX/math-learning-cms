@@ -8,7 +8,8 @@ Sebagai Tugas Aplikasi Struktur Data
 
 - Buat submit terakhir bisa memunculkan pop up skor 
 
-
+#### IMPORTANT
+**@vite('resources/css/app.css', 'resources/js/app.js') dipanggil secara terpisah (satu - satu) karena subbab/show.blade.php membutuhkan tailwindcss yang belum dibuild, sehingga terpaksa subbab/show.blade.php menggunaan tailwindcss CDN! (hanya show.blade.php yang menggunakan CDN, sisanya menggunakan @vite('resources/css/app.css', 'resources/js/app.js')**
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 

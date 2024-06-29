@@ -5,9 +5,30 @@
     <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
     <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
     <script src="{{ asset('js/subbabScript.js') }} "></script>
+
+<!-- SANGAT TERPAKSA MENGGUNAKAN CDN KARENA HARUS BUILD SETIAP KALI MUNCUL DARI JAVASCRIPT :'(-->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            content: ["./resources/**/*.blade.php"],
+            theme: {
+                extend: {
+                    fontFamily: {
+                        inter: ["Inter"],
+                    },
+                },
+            },
+            plugins: [],
+            darkMode: "class",
+        }
+    </script>
+
      <link rel="stylesheet" href="{{ asset('css/filament/popup.css') }} "></link>
     <meta name="jumlahSoal" content="{{ $subbab->soals->count() }}">
-    
+    <div>
+        
+    </div>
+
 
     <x-navbar />
     <div class=" min-h-screen bg-gradient-to-b from-neutral-200 to-neutral-300 dark:from-neutral-950 dark:to-indigo-950 py-20">
@@ -37,7 +58,7 @@
                     @endif
                 </div>
 
-                <!-- BAGIAN ISI SUBBAB -->
+                <!-- BAGIAN ISI SUBBAB, BISA DIISI DENGAN TAILWINDCSS YANG BELUM DIBUILD -->
                  
                 {!! $subbab->subbabIsi !!}
                 
@@ -93,9 +114,7 @@
                             <div id="result-{{ $soal->id }}" class="mt-2 p-4 rounded"></div>
                         </div>
                     </form>
-                    <div class="relative">
-                    <div id="result-{{ $soal->id }}-text" class="mt-4 p-4 rounded"></div>
-                    </div>
+                        <div id="result-{{ $soal->id }}-text"></div>
                 </div>
                 @endforeach
                 

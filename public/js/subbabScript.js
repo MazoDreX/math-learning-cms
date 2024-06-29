@@ -28,9 +28,10 @@ window.checkAnswer = function(soalId) {
     if (selectedOption) {
         if (selectedOption === correctAnswer) {
             resultDiv.innerHTML = `
-            <dotlottie-player src="https://lottie.host/4534dc28-67aa-4b3c-ac13-6084a4616b44/tUuRDS7CA1.json" background="transparent" speed="1" style="width: 100px; height: auto;" loop autoplay></dotlottie-player>
+            <dotlottie-player  src="https://lottie.host/4534dc28-67aa-4b3c-ac13-6084a4616b44/tUuRDS7CA1.json" background="transparent" speed="1" style="width: 100px; height: auto;" loop autoplay></dotlottie-player>
             `;
-            resultDivText.innerHTML = '<p class="correct relative text-green-500">Jawaban Anda benar!</p>';
+            resultDivText.innerHTML = `
+            <p class="correct relative text-green-500">Jawaban Anda benar!</p>`;
             jawabanBenar++;
             console.log("JAWABAN BENAR = " ,jawabanBenar);
         } else {
