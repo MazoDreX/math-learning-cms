@@ -17,7 +17,7 @@
         </div>
         <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
 
-        <dotlottie-player src="https://lottie.host/b5425845-8ce5-4098-8df5-e47247037bc9/gK4p8iz2K0.json" background="transparent" speed="1" style="max-width: 600px; height: 400px" loop autoplay></dotlottie-player>
+        <dotlottie-player alt="Lottie-Animation Mengajar" src="https://lottie.host/b5425845-8ce5-4098-8df5-e47247037bc9/gK4p8iz2K0.json" background="transparent" speed="1" style="max-width: 600px; height: 400px" loop autoplay></dotlottie-player>
       </div>
       <div id="daftarbab" class="py-6 w-full"></div>
     </div>

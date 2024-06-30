@@ -22,13 +22,15 @@ window.checkAnswer = function(soalId) {
     const formData = new FormData(form);
     const selectedOption = formData.get('option');
     const correctAnswer = form.querySelector('input[name="correct_answer"]').value;
+    const result = document.getElementById(`result-${soalId}`);
+    const thumbUp_emoji = result.getAttribute('data-thumbUp_emoji');
 
     const resultDiv = document.getElementById(`result-${soalId}`);
     const resultDivText = document.getElementById(`result-${soalId}-text`);
     if (selectedOption) {
         if (selectedOption === correctAnswer) {
             resultDiv.innerHTML = `
-            <dotlottie-player  src="https://lottie.host/4534dc28-67aa-4b3c-ac13-6084a4616b44/tUuRDS7CA1.json" background="transparent" speed="1" style="width: 100px; height: auto;" loop autoplay></dotlottie-player>
+            <dotlottie-player  src="${thumbUp_emoji}" background="transparent" speed="1" style="width: 100px; height: auto;" loop autoplay></dotlottie-player>
             `;
             resultDivText.innerHTML = `
             <p class="correct relative text-green-500">Jawaban Anda benar!</p>`;
@@ -73,7 +75,139 @@ window.checkAnswer = function(soalId) {
 function showScore() {
     const scoreDiv = document.getElementById('score');
     const scorePercentage = (jawabanBenar / totalSoal) * 100;
+    const scoreText = document.querySelectorAll('.score-text');
+    const modal = document.getElementById('modal');
+    const body = document.querySelector('body');
+    const lottieURL_SAD = modal.getAttribute('data-sad_emoji');
+    const lottieURL_HAPPY = modal.getAttribute('data-happy_emoji');
+    const lottieURL_STRONG = modal.getAttribute('data-strong_emoji');
+    
+    if (jawabanBenar == totalSoal && scoreText.length > 0 ) {
+        body.style.overflow = 'hidden';
+        scoreText.forEach(element => {
+            element.classList.add('text-green-500');
+        });
+        modal.innerHTML = `
+            <div  class="modal-container modal-center">
+                <div class="lottie-container relative">
+                    <dotlottie-player class="icon"  src="${lottieURL_HAPPY}" background="transparent" speed="1" style="width: 200px; height: auto;" loop autoplay></dotlottie-player>
+                    <dotlottie-player class="icon-2" src="https://lottie.host/05675fb7-79f7-4dd8-b889-68ffe22ae0ef/vw8IWV2nT6.json" background="transparent" speed="1"  loop autoplay></dotlottie-player>
+                </div>
+                <div class="title">
+                    Selamat!
+                </div>
+                <div class="text">
+                    Anda telah menyelesaikan subbab ini<br>
+                    Nilai anda sempurna
+                    <div class="flex-popup place-content-center">
+                        <div class="">Skor Anda : </div>
+                        <div id="score" class="ml-2 font-semibold text-green-500">${jawabanBenar}/${totalSoal} (${scorePercentage.toFixed(2)})</div>
+                    </div>
+                </div>
+                <div class="dismiss-btn">
+                    <button id="dismiss-popup-btn">OK</button>
+                </div>
+            </div>
+        `;
+        modal.classList.add("active");
+        const dismissBtn = document.getElementById('dismiss-popup-btn');
+        
+        dismissBtn.addEventListener('click', function(){
+            modal.classList.remove("active");
+            modal.classList.add('exit');
+            document.documentElement.classList.remove('modal-active');
+            document.body.classList.remove('modal-active');
+            modal.addEventListener('transitioned', function(){
+                modal.innerHTML = ``;
+                modal.classList.remove('exit');
+                
+            }, { once: true });
+            body.style.overflow = 'auto';
+        });
+    } else if( scorePercentage >= 50 && scorePercentage < 100)  {
+        modal.innerHTML = `
+            <div  class="modal-container modal-center">
+                <div class="lottie-container relative">
+                    <dotlottie-player class="icon"  src="${lottieURL_STRONG}" background="transparent" speed="1" style="width: 200px; height: auto;" loop autoplay></dotlottie-player>
+                    
+                </div>
+                <div class="title">
+                    Selamat!
+                </div>
+                <div class="text">
+                    Anda telah menyelesaikan subbab ini<br>
+                    Anda masih bisa berkembang dengan belajar lebih banyak
+                    <div class="flex-popup place-content-center">
+                        <div class="">Skor Anda : </div>
+                        <div id="score" class="ml-2 font-semibold ">${jawabanBenar}/${totalSoal} (${scorePercentage.toFixed(2)})</div>
+                    </div>
+                </div>
+                <div class="dismiss-btn">
+                    <button id="dismiss-popup-btn">OK</button>
+                </div>
+            </div>
+        `;
+        modal.classList.add("active");
+        const dismissBtn = document.getElementById('dismiss-popup-btn');
+        
+        dismissBtn.addEventListener('click', function(){
+            modal.classList.remove("active");
+            modal.classList.add('exit');
+            document.documentElement.classList.remove('modal-active');
+            document.body.classList.remove('modal-active');
+            modal.addEventListener('transitioned', function(){
+                modal.innerHTML = ``;
+                modal.classList.remove('exit');
+                
+            }, { once: true });
+            body.style.overflow = 'auto';
+        });
+    } else if( scorePercentage == 0 || scorePercentage < 50 && scoreText.length > 0 ) {
+
+        scoreText.forEach(element => {
+            element.classList.add('text-red-500')
+        });
+        body.style.overflow = 'hidden';
+        modal.innerHTML = `
+            <div  class="modal-container modal-center">
+                <div class="lottie-container relative">
+                   <dotlottie-player src="${lottieURL_SAD}" background="transparent" speed="1"   loop autoplay></dotlottie-player>
+                </div>
+                <div class="title">
+                    Yah...
+                </div>
+                <div class="text">
+                    Anda telah menyelesaikan subbab ini, <br>tapi nilai kamu tidak memuaskan<br>
+                    Belajar lebih semangat lagi....
+                    <div class="flex-popup place-content-center">
+                        <div class="">Skor Anda : </div>
+                        <div id="score" class="ml-2 font-semibold text-red-500">${jawabanBenar}/${totalSoal} (${scorePercentage.toFixed(2)})</div>
+                    </div>
+                </div>
+                <div class="dismiss-btn">
+                    <button id="dismiss-popup-btn">OK</button>
+                </div>
+            </div>
+        `;
+        modal.classList.add("active");
+        const dismissBtn = document.getElementById('dismiss-popup-btn');
+        
+        dismissBtn.addEventListener('click', function(){
+            modal.classList.remove("active");
+            modal.classList.add('exit');
+            document.documentElement.classList.remove('modal-active');
+            document.body.classList.remove('modal-active');
+            modal.addEventListener('transitioned', function(){
+                modal.innerHTML = ``;
+                modal.classList.remove('exit');
+                
+            }, { once: true });
+            body.style.overflow = 'auto';
+        });
+    }
+
     scoreDiv.innerHTML = `${jawabanBenar}/${totalSoal} (${scorePercentage.toFixed(2)})`;
+
 }
 
 });

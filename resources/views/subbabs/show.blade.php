@@ -2,8 +2,6 @@
     <title>Belajar Matematika - {{ $subbab->subbabJudul }}</title>
     <script id="MathJax-script" async src="{{asset('js/mathjax/tex-chtml.js')}}"></script>
     <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
-    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
-    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
     <script src="{{ asset('js/subbabScript.js') }} "></script>
 
 <!-- SANGAT TERPAKSA MENGGUNAKAN CDN KARENA HARUS BUILD SETIAP KALI MUNCUL DARI JAVASCRIPT :'(-->
@@ -25,13 +23,16 @@
 
      <link rel="stylesheet" href="{{ asset('css/filament/popup.css') }} "></link>
     <meta name="jumlahSoal" content="{{ $subbab->soals->count() }}">
-    <div>
-        
-    </div>
+    <meta name="sad_emoji" content="{{ url('lottie/sad_emoji.lottie') }}">
 
+    <div type="hidden" id="modal" 
+        data-sad_emoji="{{ url('lottie/sad_emoji.lottie') }}"
+        data-happy_emoji="{{ url('lottie/happy_emoji.lottie') }}"
+        data-strong_emoji="{{ url('lottie/strong_emoji.lottie') }}"    
+    > </div>
 
     <x-navbar />
-    <div class=" min-h-screen bg-gradient-to-b from-neutral-200 to-neutral-300 dark:from-neutral-950 dark:to-indigo-950 py-20">
+    <div id="main" class=" min-h-screen bg-gradient-to-b from-neutral-200 to-neutral-300 dark:from-neutral-950 dark:to-indigo-950 py-20">
         <div class="container mx-auto p-6 bg-neutral-100 dark:bg-neutral-900">
 
             <div class="flex justify-between items-center mb-6">
@@ -78,9 +79,12 @@
                 
             </div>
             <h2 class="text-2xl font-semibold mb-4 text-center dark:text-neutral-100">Soal Latihan</h2>
-            <div class="flex">
-                <div class="">Skor Anda : </div>
-                <div id="score" class="ml-2">0</div>
+            <!-- BAGIAN SKOR -->
+            <div class="flex ">
+                    <div class="flex space-x-4 bg-white dark:bg-neutral-700 p-4 rounded-lg shadow-md">
+                        <div class="font-semibold dark:text-neutral-50">Skor Anda : </div>
+                        <div id="score" class="score-text ml-2 font-semibold dark:text-neutral-50">0</div>
+                    </div>
             </div>
             @if ($soals && count($soals) > 0)
             <div class="space-y-4 ">
@@ -111,7 +115,9 @@
                             <div class="relative mt-10">
                                 <button type="button" onclick="checkAnswer({{ $soal->id }});" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded">Submit</button>
                             </div>
-                            <div id="result-{{ $soal->id }}" class="mt-2 p-4 rounded"></div>
+                            <div id="result-{{ $soal->id }}" 
+                                data-thumbUp_emoji="{{ url('lottie/thumbUp_emoji.lottie') }} "
+                            class="mt-2 p-4 rounded"></div>
                         </div>
                     </form>
                         <div id="result-{{ $soal->id }}-text"></div>
@@ -124,5 +130,4 @@
             @endif
         </div>
     </div>
-
 </x-layout>
