@@ -32,7 +32,7 @@ npm install
 ```
 ```bash
 npm install mathjax@3
-mv node_modules/mathjax/es5 <path-to-server-location>/mathjax
+mv node_modules/mathjax/es5 public/mathjax
 ```
 ## Run Development
 
