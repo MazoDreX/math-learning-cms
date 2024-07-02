@@ -86,7 +86,7 @@
             <div class="space-y-4 ">
                 @foreach ($soals as $soal)
                 <div class="soal bg-white flex shadow-md rounded-lg p-6 dark:text-white dark:bg-neutral-700 justify-between">
-                    <div>
+                    <div class="ml-0 lg:mx-20">
                         <p class="mb-4">{!! $soal->soal !!}</p>
                         <form id="form-{{ $soal->id }}">
                             <ul class="space-y-2">
@@ -114,7 +114,7 @@
                         </form>
                         <div id="result-{{ $soal->id }}-text"></div>
                     </div>
-                    <div class="self-start">
+                    <div class="self-start lg:absolute lg:justify-self-start">
                         <div id="result-{{ $soal->id }}" data-Right_Answer="{{ url('lottie/Right_Answer.lottie') }} " class="rounded"></div>
                     </div>
                 </div>

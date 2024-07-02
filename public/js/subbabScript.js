@@ -183,7 +183,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
             body.style.overflow = "hidden";
             modal.innerHTML = `
-            <div id="overlay" class="overlay"></div>
+            <div id="overlay" class="overlay"></div>s
             <div  class="modal-container modal-center">
                 <div class="lottie-container relative">
                 <dotlottie-player src="${lottieURL_SAD}" background="transparent" speed="1"   loop autoplay></dotlottie-player>
