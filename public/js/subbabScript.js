@@ -21,32 +21,40 @@ document.addEventListener("DOMContentLoaded", function () {
         const correctAnswer = form.querySelector(
             'input[name="correct_answer"]'
         ).value;
+
+        const labelBox = document.getElementById(`label-${selectedOption}-${soalId}`);
+        const correctLabelBox = document.getElementById(`label-${correctAnswer}-${soalId}`);
+
         const result = document.getElementById(`result-${soalId}`);
         const right_answer = result.getAttribute("data-Right_Answer");
+        const wrong_answer= result.getAttribute("data-Wrong_Answer");
 
         const resultDiv = document.getElementById(`result-${soalId}`);
         const resultDivText = document.getElementById(`result-${soalId}-text`);
         if (selectedOption) {
             if (selectedOption === correctAnswer) {
+                labelBox.classList.add("bg-green-500", "rounded");
                 resultDiv.innerHTML = `
             <dotlottie-player  src="${right_answer}" background="transparent" speed="1" style="width: 45px; height: auto;" null autoplay></dotlottie-player>
             `;
-                resultDivText.innerHTML = `
-            <p class="correct relative text-green-500">Jawaban Anda benar!</p>`;
+            //     resultDivText.innerHTML = `
+            // <p class="correct relative text-green-500">Jawaban Kamu benar!</p>`;
                 jawabanBenar++;
                 console.log("JAWABAN BENAR = ", jawabanBenar);
             } else {
+                correctLabelBox.classList.add("bg-green-500", "rounded");
+                labelBox.classList.add("bg-red-500", "rounded");
                 resultDiv.innerHTML = `
-            <dotlottie-player src="https://lottie.host/824332f6-45ee-4c10-bbfe-4cafa0613444/3a9xcCoeJ6.json" background="transparent" speed="1" style="width: 45px; height: auto;" null autoplay></dotlottie-player>
+            <dotlottie-player src="${wrong_answer}" background="transparent" speed="1" style="width: 45px; height: auto;" null autoplay></dotlottie-player>
             `;
-                resultDivText.innerHTML = `<p class="incorrect relative text-red-500">Jawaban Anda salah. Jawaban yang benar adalah ${correctAnswer.toUpperCase()}.</p>`;
+                // resultDivText.innerHTML = `<p class="incorrect relative text-red-500">Jawaban Kamu salah. Jawaban yang benar adalah ${correctAnswer.toUpperCase()}.</p>`;
                 jawabanSalah++;
                 console.log("JAWABAN SALAH = ", jawabanSalah);
             }
             soalTerjawab++;
             console.log("SOAL TERJAWAB = ", soalTerjawab);
         } else {
-            resultDiv.innerHTML = `<p class="incorrect text-red-500">Anda belum memilih jawaban.</p>`;
+            resultDivText.innerHTML = `<p class="incorrect text-red-500">Kamu belum memilih jawaban.</p>`;
         }
 
         // Menonaktifkan semua input radio setelah submit
@@ -85,6 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 element.classList.add("text-green-500");
             });
             modal.innerHTML = `
+            
             <div id="overlay" class="overlay"></div>
             <div  class="modal-container modal-center">
                 <div class="lottie-container relative">
@@ -95,25 +104,21 @@ document.addEventListener("DOMContentLoaded", function () {
                     Selamat!
                 </div>
                 <div class="text">
-                    Anda telah menyelesaikan subbab ini<br>
-                    Nilai anda sempurna
+                    Kamu telah menyelesaikan subbab ini<br>
+                    Nilai Kamu sempurna
                     <div class="flex-popup place-content-center">
-                        <div class="">Skor Anda : </div>
+                        <div class="">Skor Kamu : </div>
                         <div id="score" class="ml-2 font-semibold text-green-500">${jawabanBenar}/${totalSoal} (${scorePercentage.toFixed(
                 2
             )})</div>
                     </div>
                 </div>
-                <div class="dismiss-btn">
-                    <button id="dismiss-popup-btn">OK</button>
-                </div>
             </div>
 
         `;
             modal.classList.add("active");
-            const dismissBtn = document.getElementById("dismiss-popup-btn");
 
-            dismissBtn.addEventListener("click", function () {
+            modal.addEventListener("click", function () {
                 modal.classList.remove("active");
                 modal.classList.add("exit");
                 document.documentElement.classList.remove("modal-active");
@@ -130,6 +135,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 document.getElementById("overlay").style.display = "none";
             });
         } else if (scorePercentage >= 50 && scorePercentage < 100) {
+            body.style.overflow = "hidden";
             modal.innerHTML = `
             <div id="overlay" class="overlay"></div>
             <div  class="modal-container modal-center">
@@ -138,27 +144,24 @@ document.addEventListener("DOMContentLoaded", function () {
                     
                 </div>
                 <div class="title">
-                    Selamat!
+                    Semangat!
                 </div>
                 <div class="text">
-                    Anda telah menyelesaikan subbab ini<br>
-                    Anda masih bisa berkembang dengan belajar lebih banyak
+                    Kamu telah menyelesaikan subbab ini<br>
+                    Kamu masih bisa berkembang dengan belajar lebih banyak
                     <div class="flex-popup place-content-center">
-                        <div class="">Skor Anda : </div>
+                        <div class="">Skor Kamu : </div>
                         <div id="score" class="ml-2 font-semibold ">${jawabanBenar}/${totalSoal} (${scorePercentage.toFixed(
                 2
             )})</div>   
                     </div>
                 </div>
-                <div class="dismiss-btn">
-                    <button id="dismiss-popup-btn">OK</button>
-                </div>
             </div>
         `;
+        body.style.overflow = "hidden";
             modal.classList.add("active");
-            const dismissBtn = document.getElementById("dismiss-popup-btn");
 
-            dismissBtn.addEventListener("click", function () {
+            modal.addEventListener("click", function () {
                 modal.classList.remove("active");
                 modal.classList.add("exit");
                 document.documentElement.classList.remove("modal-active");
@@ -192,24 +195,20 @@ document.addEventListener("DOMContentLoaded", function () {
                     Yah...
                 </div>
                 <div class="text">
-                    Anda telah menyelesaikan subbab ini, <br>tapi nilai kamu tidak memuaskan<br>
+                    Kamu telah menyelesaikan subbab ini, <br>tapi nilai kamu tidak memuaskan<br>
                     Belajar lebih semangat lagi....
                     <div class="flex-popup place-content-center">
-                        <div class="">Skor Anda : </div>
+                        <div class="">Skor Kamu : </div>
                         <div id="score" class="ml-2 font-semibold text-red-500">${jawabanBenar}/${totalSoal} (${scorePercentage.toFixed(
                 2
             )})</div>
                     </div>
                 </div>
-                <div class="dismiss-btn">
-                    <button id="dismiss-popup-btn">OK</button>
-                </div>
             </div>
         `;
             modal.classList.add("active");
-            const dismissBtn = document.getElementById("dismiss-popup-btn");
 
-            dismissBtn.addEventListener("click", function () {
+            modal.addEventListener("click", function () {
                 modal.classList.remove("active");
                 modal.classList.add("exit");
                 document.documentElement.classList.remove("modal-active");

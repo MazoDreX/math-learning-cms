@@ -21,12 +21,15 @@
         }
     </script>
 
-    <link rel="stylesheet" href="{{ asset('css/filament/popup.css') }} ">
-    </link>
+    <link rel="stylesheet" href="{{ asset('css/filament/popup.css') }} "></link>
     <meta name="jumlahSoal" content="{{ $subbab->soals->count() }}">
-    <meta name="sad_emoji" content="{{ url('lottie/sad_emoji.lottie') }}">
+    
 
-    <div type="hidden" id="modal" data-sad_emoji="{{ url('lottie/sad_emoji.lottie') }}" data-happy_emoji="{{ url('lottie/happy_emoji.lottie') }}" data-strong_emoji="{{ url('lottie/strong_emoji.lottie') }}"> </div>
+    <div type="hidden" id="modal" 
+         data-sad_emoji="{{ url('lottie/sad_emoji.lottie') }}" 
+         data-happy_emoji="{{ url('lottie/happy_emoji.lottie') }}" 
+         data-strong_emoji="{{ url('lottie/strong_emoji.lottie') }}"> 
+    </div>
 
     <x-navbar />
     <div id="main" class=" min-h-screen bg-gradient-to-b from-neutral-200 to-neutral-300 dark:from-neutral-950 dark:to-indigo-950 py-20">
@@ -62,9 +65,9 @@
                 </div>
 
                 <!-- BAGIAN PEMBUAT DAN TANGGAL PEMBUATAN-->
-                <div class="flex justify-between items-center space-x-4 bg-white dark:bg-neutral-700 p-4 rounded-lg mt-8">
+                <div class="flex justify-between items-center space-x-4 bg-white dark:bg-zinc-700 p-4 rounded-lg mt-8">
                     <div></div>
-                    <div class="flex justify-between items-center space-x-4 bg-white dark:bg-neutral-700 p-4 rounded-lg shadow-md">
+                    <div class="flex justify-between items-center space-x-4 bg-white dark:bg-zinc-700 p-4 rounded-lg shadow-md">
                         <p class="text-lg italic font-medium text-neutral-900 dark:text-neutral-100">{{ $subbab->creator }}</p>
                         <p class="text-neutral-600 dark:text-neutral-400">Dibuat {{ $subbab->created_at->translatedFormat('d F Y') }}</p>
                         <p class="text-neutral-600 dark:text-neutral-400">{{ $subbab->created_at->diffForHumans() }}</p>
@@ -92,30 +95,33 @@
                             <ul class="space-y-2">
                                 <li class="flex items-center">
                                     <input type="radio" name="option" value="a" id="option_a_{{ $soal->id }}">
-                                    <label for="option_a_{{ $soal->id }}" class="ml-2">{!! $soal->option_a !!}</label>
+                                    <label id="label-a-{{ $soal->id }}" for="option_a_{{ $soal->id }}" class="ml-2 px-1">{!! $soal->option_a !!}</label>
                                 </li>
                                 <li class="flex items-center">
                                     <input type="radio" name="option" value="b" id="option_b_{{ $soal->id }}">
-                                    <label for="option_b_{{ $soal->id }}" class="ml-2">{!! $soal->option_b !!}</label>
+                                    <label id="label-b-{{ $soal->id }}" for="option_b_{{ $soal->id }}" class="ml-2 px-1">{!! $soal->option_b !!}</label>
                                 </li>
-                                <li class="flex items-center">
+                                <li class="flex items-center ">
                                     <input type="radio" name="option" value="c" id="option_c_{{ $soal->id }}">
-                                    <label for="option_c_{{ $soal->id }}" class="ml-2">{!! $soal->option_c !!}</label>
+                                    <label id="label-c-{{ $soal->id }}" for="option_c_{{ $soal->id }}" class="ml-2 px-1">{!! $soal->option_c !!}</label>
                                 </li>
                                 <li class="flex items-center">
                                     <input type="radio" name="option" value="d" id="option_d_{{ $soal->id }}">
-                                    <label for="option_d_{{ $soal->id }}" class="ml-2">{!! $soal->option_d !!}</label>
+                                    <label id="label-d-{{ $soal->id }}" for="option_d_{{ $soal->id }}" class="ml-2 px-1">{!! $soal->option_d !!}</label>
                                 </li>
                             </ul>
                             <input type="hidden" name="correct_answer" value="{{ $soal->jawaban }}">
-                            <div class="relative my-5">
+                            <div class="relative mt-5">
                                 <button type="button" onclick="checkAnswer({{ $soal->id }});" class="bg-blue-500 text-white px-4 py-2 rounded">Submit</button>
                             </div>
                         </form>
                         <div id="result-{{ $soal->id }}-text"></div>
                     </div>
                     <div class="self-start lg:absolute lg:justify-self-start">
-                        <div id="result-{{ $soal->id }}" data-Right_Answer="{{ url('lottie/Right_Answer.lottie') }} " class="rounded"></div>
+                        <div id="result-{{ $soal->id }}" 
+                            data-Right_Answer="{{ url('lottie/Right_Answer.lottie') }} " 
+                            data-Wrong_Answer="{{ url('lottie/Wrong_Answer.lottie') }}"
+                            class="rounded"></div>
                     </div>
                 </div>
                 @endforeach
