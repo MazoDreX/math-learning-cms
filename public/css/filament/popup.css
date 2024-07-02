@@ -1,4 +1,4 @@
-body #modal .active  {
+body #modal .active {
     overflow: hidden;
 }
 
@@ -11,7 +11,6 @@ body #modal .active  {
 #modal.active {
     opacity: 1;
     visibility: visible;
-
 }
 
 #modal.exit {
@@ -21,14 +20,12 @@ body #modal .active  {
 }
 
 .modal-center {
-    z-index: 2;
+    z-index: 20;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
 }
-
 
 .modal-container {
     height: auto;
@@ -38,6 +35,20 @@ body #modal .active  {
     border-radius: 10px;
     box-sizing: border-box;
     text-align: center;
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+        0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+.overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Untuk membuat latar belakang gelap */
+    backdrop-filter: blur(5px); /* Untuk membuat latar belakang blur */
+    z-index: 10;
 }
 
 .lottie-container {
@@ -47,7 +58,7 @@ body #modal .active  {
     margin: 0 auto; /* Margin bottom untuk memberi ruang antara animasi dan teks */
 }
 
-.lottie-container .icon, 
+.lottie-container .icon,
 .lottie-container .icon-2 {
     position: absolute;
     margin: 0px 0px;
@@ -66,9 +77,8 @@ body #modal .active  {
 
 .lottie-container .icon-2 {
     width: 500px;
-    height: 500px; 
+    height: 500px;
 }
-
 
 .modal-container .title {
     font-size: 24px;
@@ -110,3 +120,12 @@ body #modal .active  {
     color: #111;
 }
 
+@media (max-width: 768px) {
+    .modal-container {
+        width: 300px;
+        padding: 16px;
+        box-sizing: border-box;
+        text-align: center;
+        font-size: 90%;
+    }
+}
