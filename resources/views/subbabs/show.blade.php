@@ -78,7 +78,7 @@
             <h2 class="text-2xl font-semibold mb-4 text-center dark:text-neutral-100">Soal Latihan</h2>
             <!-- BAGIAN SKOR -->
             <div class="flex mb-5">
-                <div class="flex space-x-4 bg-white dark:bg-neutral-700 p-4 rounded-lg shadow-md">
+                <div class="flex space-x-4 bg-white dark:bg-zinc-700 p-4 rounded-lg shadow-md">
                     <div class="font-semibold dark:text-neutral-50">Skor Anda : </div>
                     <div id="score" class="score-text ml-2 font-semibold dark:text-neutral-50">0</div>
                 </div>
@@ -86,7 +86,7 @@
             @if ($soals && count($soals) > 0)
             <div class="space-y-4 ">
                 @foreach ($soals as $soal)
-                <div class="soal bg-white flex shadow-md rounded-lg p-6 dark:text-white dark:bg-neutral-700 justify-between">
+                <div class="soal bg-white flex shadow-md rounded-lg p-6 dark:text-white dark:bg-zinc-700 justify-between">
                     <div class="ml-0 lg:mx-20">
                         <p class="mb-4">{!! $soal->soal !!}</p>
                         <form id="form-{{ $soal->id }}">
