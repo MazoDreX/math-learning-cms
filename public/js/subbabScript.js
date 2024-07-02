@@ -39,7 +39,8 @@ document.addEventListener("DOMContentLoaded", function () {
             if (selectedOption === correctAnswer) {
                 labelBox.classList.add(
                     "bg-green-500",
-                    "rounded"
+                    "rounded",
+                    "text-white"
                 );
                 resultDiv.innerHTML = `
             <dotlottie-player  src="${right_answer}" background="transparent" speed="1" style="width: 45px; height: auto;" null autoplay></dotlottie-player>
@@ -51,11 +52,13 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 correctLabelBox.classList.add(
                     "bg-green-500",
-                    "rounded"
+                    "rounded",
+                    "text-white"
                 );
                 labelBox.classList.add(
                     "bg-red-500",
-                    "rounded"
+                    "rounded",
+                    "text-white"
                 );
                 resultDiv.innerHTML = `
             <dotlottie-player src="${wrong_answer}" background="transparent" speed="1" style="width: 45px; height: auto;" null autoplay></dotlottie-player>
