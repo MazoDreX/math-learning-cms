@@ -21,14 +21,12 @@
         }
     </script>
 
-    <link rel="stylesheet" href="{{ asset('css/filament/popup.css') }} "></link>
+    <link rel="stylesheet" href="{{ asset('css/filament/popup.css') }} ">
+    </link>
     <meta name="jumlahSoal" content="{{ $subbab->soals->count() }}">
-    
 
-    <div type="hidden" id="modal" 
-         data-sad_emoji="{{ url('lottie/sad_emoji.lottie') }}" 
-         data-happy_emoji="{{ url('lottie/happy_emoji.lottie') }}" 
-         data-strong_emoji="{{ url('lottie/strong_emoji.lottie') }}"> 
+
+    <div type="hidden" id="modal" data-sad_emoji="{{ url('lottie/sad_emoji.lottie') }}" data-happy_emoji="{{ url('lottie/happy_emoji.lottie') }}" data-strong_emoji="{{ url('lottie/strong_emoji.lottie') }}">
     </div>
 
     <x-navbar />
@@ -60,7 +58,7 @@
                 </div>
 
                 <!-- BAGIAN ISI SUBBAB, BISA DIISI DENGAN TAILWINDCSS YANG BELUM DIBUILD -->
-                <div class="">
+                <div class="max-w-screen-xl overflow-hidden text-wrap">
                     {!! $subbab->subbabIsi !!}
                 </div>
 
@@ -118,10 +116,7 @@
                         <div id="result-{{ $soal->id }}-text"></div>
                     </div>
                     <div class="self-start lg:absolute lg:justify-self-start">
-                        <div id="result-{{ $soal->id }}" 
-                            data-Right_Answer="{{ url('lottie/Right_Answer.lottie') }} " 
-                            data-Wrong_Answer="{{ url('lottie/Wrong_Answer.lottie') }}"
-                            class="rounded"></div>
+                        <div id="result-{{ $soal->id }}" data-Right_Answer="{{ url('lottie/Right_Answer.lottie') }} " data-Wrong_Answer="{{ url('lottie/Wrong_Answer.lottie') }}" class="rounded"></div>
                     </div>
                 </div>
                 @endforeach
