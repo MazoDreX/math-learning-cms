@@ -49,7 +49,7 @@
                 <h1 class="text-3xl font-bold text-center dark:text-neutral-100 mb-6">{{ $subbab->subbabJudul }}</h1>
                 <div class="flex justify-between items-center mb-6">
                     @if ($tags)
-                    <div class="flex flex-wrap mb-4 items-center md:px-7 lg:px-12">
+                    <div class="flex flex-wrap mb-4 items-center md:px-7 lg:px-12 xl:px-20">
                         @foreach ($tags as $tag)
                         <span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">{{ $tag }}</span>
                         @endforeach
@@ -58,7 +58,7 @@
                 </div>
 
                 <!-- BAGIAN ISI SUBBAB, BISA DIISI DENGAN TAILWINDCSS YANG BELUM DIBUILD -->
-                <div class="max-w-screen-xl overflow-hidden text-wrap md:text-lg md:px-7 lg:text-xl lg:px-12 text-zinc-700 dark:text-zinc-200">
+                <div class="w-full overflow-hidden text-wrap md:text-lg md:px-7 lg:text-xl lg:px-12 xl:px-20 text-zinc-700 dark:text-zinc-200">
                     {!! $subbab->subbabIsi !!}
                 </div>
 
