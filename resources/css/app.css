@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+    .text-gradient-light {
+        @apply bg-clip-text text-transparent;
+        background-image: linear-gradient(
+            to right,
+            #334155,
+            #0891b2
+        ); /* from slate 700 - to cyan 600 */
+    }
+
+    .text-gradient-dark {
+        @apply bg-clip-text text-transparent;
+        background-image: linear-gradient(
+            to right,
+            #7dd3fc,
+            #818cf8
+        ); /* from sky 300 - to indigo 400 */
+    }
+}
