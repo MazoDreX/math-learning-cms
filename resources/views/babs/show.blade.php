@@ -1,6 +1,6 @@
 <x-layout>
   <title>Bab {{ $bab->judul }}</title>
-  @vite('resources/css/app.css', 'resources/js/app.js')
+  @vite('resources/css/app.css')
   <x-navbar></x-navbar>
   <div class="flex flex-col min-h-screen py-20 bg-gradient-to-b from-neutral-100 to-sky-200 dark:from-neutral-950 dark:to-indigo-950">
     <h1 class="text-3xl font-bold text-center mb-8 my-6 dark:text-neutral-100">{{ $bab->judul }}</h1>

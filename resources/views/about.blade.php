@@ -4,7 +4,7 @@ $isHomePage = request()->is('/');
 
 <x-layout>
   <title>Tentang</title>
-  @vite('resources/css/app.css', 'resources/js/app.js')
+  @vite('resources/css/app.css')
   <x-navbar>
   </x-navbar>
   <div class="bg-gradient-to-b from-slate-200 to-sky-200 min-h-screen  dark:from-indigo-950 dark:to-slate-900 dark:text-slate-200 pt-20 w-full">

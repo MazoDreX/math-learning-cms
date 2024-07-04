@@ -1,6 +1,6 @@
 <x-layout>
   <title>Belajar Matematika - Daftar Bab</title>
-  @vite('resources/css/app.css', 'resources/js/app.js')
+  @vite('resources/css/app.css')
   <x-navbar></x-navbar>
   <div id="home" class="pt-16">
     <div class="flex flex-col">

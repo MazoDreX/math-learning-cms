@@ -1,7 +1,7 @@
 @php
 $isHomePage = request()->is('/');
 @endphp
-@vite('resources/css/app.css', 'resources/js/app.js')
+@vite('resources/css/app.css')
 <div>
   <!-- Smile, breathe, and go slowly. - Thich Nhat Hanh -->
 
