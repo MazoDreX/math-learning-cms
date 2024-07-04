@@ -9,6 +9,8 @@ $isHomePage = request()->is('/');
   </x-navbar>
   <div class="bg-gradient-to-b from-slate-200 to-sky-200 min-h-screen  dark:from-indigo-950 dark:to-slate-900 dark:text-slate-200 pt-20 w-full">
     <div class="my-7 px-8 max-w-screen-xl mx-auto">
+
+      <!-- WELCOMING -->
       <div class="md:w-3/4 lg:w-3/5 mx-auto">
         <h1 class="text-3xl text-center font-semibold">Welcome to <span class="font-bold text-gradient-light dark:text-gradient-dark">MathEdge!</span></h1>
         <p class="tracking-wide leading-loose py-8 text-center">
@@ -19,8 +21,9 @@ $isHomePage = request()->is('/');
         </p>
       </div>
 
+      <!-- WHY CHOOSE MATHEDGE -->
       <h1 class="text-3xl text-center font-semibold py-10">Why Choose <span class="font-bold text-gradient-light dark:text-gradient-dark">MathEdge?</span></h1>
-      <div class="snap-x flex gap-6 snap-mandatory h-screen/2 w-96 p-4 mx-auto overflow-scroll md:w-3/4 lg:w-fit lg:overflow-hidden">
+      <div class="snap-x flex gap-6 snap-mandatory h-screen/2 w-72 p-4 mx-auto overflow-scroll md:w-3/4 lg:w-fit lg:overflow-hidden">
         <div class="snap-start p-8 bg-gradient-to-r shadow-md from-indigo-300 to-sky-300 dark:from-teal-500 dark:to-cyan-500 rounded-xl w-80 lg:w-72 flex-shrink-0 h-screen/2 flex flex-col items-center justify-center">
           <lottie-player alt="lottie-animation player" src="https://lottie.host/d2809d88-ecc4-4bc2-884f-855dc1fe91d3/Bjadr7lTs3.json" background="##FFFFFF" speed="1" style="max-width: 300px; height: 200px" loop autoplay direction="1" mode="normal"></lottie-player>
           <p class="text-xl tracking-wide text-center font-semibold dark:text-slate-950">
@@ -40,7 +43,7 @@ $isHomePage = request()->is('/');
       </div>
     </div>
 
-
+    <!-- LINK TO HOME -->
     <div class="max-w-screen-xl mx-auto my-20">
       <div class="flex flex-col items-center gap-5">
         <h1 class="text-3xl text-center font-semibold leading-relaxed">Edge up your <br><span class="font-bold text-gradient-light dark:text-gradient-dark">Math Skills!</span></h1>
@@ -48,6 +51,7 @@ $isHomePage = request()->is('/');
       </div>
     </div>
 
+    <!-- MATHEDGE VISION -->
     <div class="rounded-t-3xl bg-gradient-to-br from-blue-300 via-cyan-200 to-teal-500 dark:from-indigo-950 dark:via-violet-900 dark:to-purple-900">
       <div class="px-8 py-12 max-w-screen-xl mx-auto">
         <div class="flex flex-col md:pb-10">

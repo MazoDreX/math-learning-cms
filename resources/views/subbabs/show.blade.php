@@ -34,12 +34,12 @@
         <div class="container mx-auto p-6 bg-neutral-100 dark:bg-neutral-900">
 
             <div class="flex justify-between items-center mb-6">
-                <a href="{{ url('/bab/' . $subbab->bab->slug) }}" class="text-neutral-500 text-base lg:text-lg font-semibold p-2 rounded-lg hover:text-neutral-800 hover:bg-neutral-300 dark:text-neutral-400 dark:hover:text-neutral-200"><i class="fa-solid fa-circle-arrow-left mr-3"></i>Kembali</a>
+                <a href="{{ url('/bab/' . $subbab->bab->slug) }}" class="text-neutral-500 text-base lg:text-lg font-semibold p-2 rounded-lg hover:text-neutral-800 hover:bg-neutral-300 dark:text-neutral-400 dark:hover:text-neutral-200 dark:hover:bg-zinc-800"><i class="fa-solid fa-circle-arrow-left mr-3"></i>Kembali</a>
 
                 @if ($nextSubbab)
-                <a href="{{ url('/subbab/' . $nextSubbab->slug) }}" class="text-neutral-500 text-base lg:text-lg font-semibold p-2 rounded-lg hover:text-neutral-800 hover:bg-neutral-300 dark:text-neutral-400 dark:hover:text-neutral-200">Selanjutnya<i class="fa-solid fa-circle-arrow-right ml-3"></i></i></a>
+                <a href="{{ url('/subbab/' . $nextSubbab->slug) }}" class="text-neutral-500 text-base lg:text-lg font-semibold p-2 rounded-lg hover:text-neutral-800 hover:bg-neutral-300 dark:text-neutral-400 dark:hover:text-neutral-200 dark:hover:bg-zinc-800">Selanjutnya<i class="fa-solid fa-circle-arrow-right ml-3"></i></i></a>
                 @else
-                <p class="text-neutral-600 dark:text-neutral-400">Tidak ada subbab selanjutnya</p>
+                <p class="justify-self-end text-center text-neutral-600 dark:text-neutral-400">Tidak ada subbab selanjutnya</p>
                 @endif
             </div>
 
@@ -63,9 +63,8 @@
                 </div>
 
                 <!-- BAGIAN PEMBUAT DAN TANGGAL PEMBUATAN-->
-                <div class="flex justify-between items-center space-x-4 bg-white dark:bg-zinc-700 p-4 rounded-lg mt-8">
-                    <div></div>
-                    <div class="flex justify-between items-center space-x-4 bg-white dark:bg-zinc-700 p-4 rounded-lg shadow-md">
+                <div class="flex justify-end items-center bg-white dark:bg-zinc-700 p-4 rounded-lg mt-8">
+                    <div class="flex flex-col sm:flex-row justify-between items-center space-x-0 sm:space-x-4 bg-white dark:bg-zinc-700 p-4 rounded-lg shadow-md text-center">
                         <p class="text-lg italic font-medium text-neutral-900 dark:text-neutral-100">{{ $subbab->creator }}</p>
                         <p class="text-neutral-600 dark:text-neutral-400">Dibuat {{ $subbab->created_at->translatedFormat('d F Y') }}</p>
                         <p class="text-neutral-600 dark:text-neutral-400">{{ $subbab->created_at->diffForHumans() }}</p>
@@ -83,11 +82,12 @@
                     <div id="score" class="score-text ml-2 font-semibold dark:text-neutral-50">0</div>
                 </div>
             </div>
+
             @if ($soals && count($soals) > 0)
             <div class="space-y-4 md:text-lg lg:text-xl">
                 @foreach ($soals as $soal)
                 <div class="soal bg-white flex shadow-md rounded-lg p-6 dark:text-white dark:bg-zinc-700 justify-between">
-                    <div class="ml-0 lg:mx-20">
+                    <div class="ml-0 lg:mx-20 text-wrap overflow-hidden">
                         <p class="mb-4">{!! $soal->soal !!}</p>
                         <form id="form-{{ $soal->id }}">
                             <ul class="space-y-2 text-zinc-700 dark:text-zinc-200">
