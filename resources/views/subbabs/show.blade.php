@@ -49,7 +49,7 @@
                 <h1 class="text-3xl font-bold text-center dark:text-neutral-100 mb-6">{{ $subbab->subbabJudul }}</h1>
                 <div class="flex justify-between items-center mb-6">
                     @if ($tags)
-                    <div class="flex flex-wrap mb-4 items-center">
+                    <div class="flex flex-wrap mb-4 items-center md:px-7 lg:px-12">
                         @foreach ($tags as $tag)
                         <span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">{{ $tag }}</span>
                         @endforeach
@@ -58,7 +58,7 @@
                 </div>
 
                 <!-- BAGIAN ISI SUBBAB, BISA DIISI DENGAN TAILWINDCSS YANG BELUM DIBUILD -->
-                <div class="max-w-screen-xl overflow-hidden text-wrap">
+                <div class="max-w-screen-xl overflow-hidden text-wrap md:text-lg md:px-7 lg:text-xl lg:px-12 text-zinc-700 dark:text-zinc-200">
                     {!! $subbab->subbabIsi !!}
                 </div>
 
@@ -84,13 +84,13 @@
                 </div>
             </div>
             @if ($soals && count($soals) > 0)
-            <div class="space-y-4 ">
+            <div class="space-y-4 md:text-lg lg:text-xl">
                 @foreach ($soals as $soal)
                 <div class="soal bg-white flex shadow-md rounded-lg p-6 dark:text-white dark:bg-zinc-700 justify-between">
                     <div class="ml-0 lg:mx-20">
                         <p class="mb-4">{!! $soal->soal !!}</p>
                         <form id="form-{{ $soal->id }}">
-                            <ul class="space-y-2">
+                            <ul class="space-y-2 text-zinc-700 dark:text-zinc-200">
                                 <li class="flex items-center">
                                     <input type="radio" name="option" value="a" id="option_a_{{ $soal->id }}">
                                     <label id="label-a-{{ $soal->id }}" for="option_a_{{ $soal->id }}" class="ml-2 px-1">{!! $soal->option_a !!}</label>
