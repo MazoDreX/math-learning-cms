@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const formData = new FormData(form);
         const selectedOption = formData.get("option");
         const correctAnswer = form.querySelector(
-            'input[name="correct_answer"]'
+            'input[name="nothing"]'
         ).value;
 
         const labelBox = document.getElementById(

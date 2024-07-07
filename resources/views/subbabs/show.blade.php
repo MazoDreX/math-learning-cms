@@ -108,7 +108,7 @@
                                     <label id="label-d-{{ $soal->id }}" for="option_d_{{ $soal->id }}" class="ml-2 px-1">{!! $soal->option_d !!}</label>
                                 </li>
                             </ul>
-                            <input type="hidden" name="correct_answer" value="{{ $soal->jawaban }}">
+                            <input type="hidden" name="nothing" value="{{ $soal->jawaban }}">
                             <div class="relative mt-5">
                                 <button type="button" onclick="checkAnswer({{ $soal->id }});" class="bg-blue-500 text-white px-4 py-2 rounded">Submit</button>
                             </div>
