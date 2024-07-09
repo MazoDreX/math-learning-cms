@@ -51,7 +51,7 @@
                     @if ($tags)
                     <div class="flex flex-wrap mb-4 items-center md:px-7 lg:px-12 xl:px-20">
                         @foreach ($tags as $tag)
-                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">{{ $tag }}</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold mx-1 mb-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">{{ $tag }}</span>
                         @endforeach
                     </div>
                     @endif
