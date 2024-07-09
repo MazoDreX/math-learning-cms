@@ -121,8 +121,8 @@ body #modal .active {
 }
 
 
-label {
-    transition: all 300ms ease-in-out;
+div {
+    transition: all 200ms ease-in-out;
 }
 
 @media (max-width: 768px) {
